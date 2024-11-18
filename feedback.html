@@ -20,43 +20,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback Page</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <header>
-      <div>
-        <img src="/assets/img/epicode_logo.png" alt="EPICODE_logo"/>
-      </div>
-    </header>
-    <main>
-      <section>
-        <h1>Tell us how it's going</h1>
-      <form>
+    <div class="container">
+      <header>
         <div>
-        <h2>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</h2>
-        <div>
-          <span><input type="radio"/></span>
-          <span><input type="radio"/></span>
-          <span><input type="radio"/></span>
-          <span><input type="radio"/></span>
-          <span><input type="radio"/></span>
-          <span><input type="radio"/></span>
-          <span><input type="radio"/></span>
-          <span><input type="radio"/></span>
-          <span><input type="radio"/></span>
-          <span><input type="radio"/></span>
+          <img
+            id="logo"
+            src="/assets/img/epicode_logo.png"
+            alt="EPICODE_logo"
+          />
         </div>
-      </div>
-      <div>
-        <h2>Leave us an open feedback about you experience so far</h2>
-        <div>
-          <input type="text" placeholder="Write your comment here"/>
-        </div>
-      </div>
-      <div>
-        <button>MORE INFO</button>
-      </div>
-      </form>
-      </section>
-    </main>
+      </header>
+      <main class="centred">
+        <section>
+          <h1>Tell us how it's going</h1>
+          <form>
+            <div>
+              <h2>
+                From 0 to 10, how likely are you to recommend EPICODE to a
+                friend or a colleague?
+              </h2>
+              <div>
+                <span><input type="radio" /></span>
+                <span><input type="radio" /></span>
+                <span><input type="radio" /></span>
+                <span><input type="radio" /></span>
+                <span><input type="radio" /></span>
+                <span><input type="radio" /></span>
+                <span><input type="radio" /></span>
+                <span><input type="radio" /></span>
+                <span><input type="radio" /></span>
+                <span><input type="radio" /></span>
+              </div>
+            </div>
+            <div>
+              <h2>Leave us an open feedback about you experience so far</h2>
+              <div>
+                <input type="text" placeholder="Write your comment here" />
+              </div>
+            </div>
+            <div>
+              <button>MORE INFO</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
   </body>
 </html>
