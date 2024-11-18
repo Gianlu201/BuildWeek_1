@@ -1,0 +1,62 @@
+body {
+    background-image: url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: left;
+
+}
+
+#logo {
+    width: 160px;
+    height: 32px;
+    padding: 0 24px;
+    margin: 24px 50px;
+
+}
+
+#title {
+    color: white;
+    margin: 0 50px;
+    padding: 10px 24px 0 24px;
+    font-size: 60px;
+    
+}
+
+#title h1 {
+
+    font-size: 60px;
+    
+    
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 60px;    
+    font-family: "Outfit", sans-serif;
+    padding-top: 10px;
+}
+.description {
+    color: #c2128d;
+    margin: 0 50px;
+    
+}
+.info {
+    color: white;
+    margin: 0 50px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+#procedi{
+    background-color: #00ffff;
+    float: right;
+    
+}
+.checkStart{
+    margin:30px 50px;
+}
+.checkStart p {
+    color: white;
+}
+.list1 li{
+    color: white;
+}
