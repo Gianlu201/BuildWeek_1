@@ -37,7 +37,7 @@
   </head>
   <body>
     <header>
-      <img class="" src="/assets/img/epicode_logo.png">
+      <img class="" src="/assets/img/epicode_logo.png" />
     </header>
     <main>
       <section class="titoli">
@@ -46,54 +46,51 @@
       </section>
       <section class="">
         <h3>Correct</h3>
-        <span><bold>66,7%</bold></span><br>
+        <span><bold>66,7%</bold></span
+        ><br />
         <span>4/6 question</span>
-      
-      <div class="">
-        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
-<script>
-var xValues = [];
-var yValues = [44, 15];
-var barColors = [
-  "#b91d47",
-  "#00aba9"
-];
+        <div class="">
+          <canvas id="myChart" style="width: 100%; max-width: 600px"></canvas>
 
-new Chart("myChart", {
-  type: "doughnut",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: ""
-    }
-  }
-});
-</script>
-<p></p>
+          <script>
+            var xValues = [];
+            var yValues = [44, 15];
+            var barColors = ['#b91d47', '#00aba9'];
 
-      </div>
-      <div>
-        <h3>Wrong</h3>
-        <span><bold>33,3%</bold></span><br>
-        <span>2/6 questions</span>
-      </div>
-    </section>
-    <footer>
-    <div>
-      <button class="">RATE US</button>
-    </div>
-  </footer>
-
-      
-      </style>
+            new Chart('myChart', {
+              type: 'doughnut',
+              data: {
+                labels: xValues,
+                datasets: [
+                  {
+                    backgroundColor: barColors,
+                    data: yValues,
+                  },
+                ],
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: '',
+                },
+              },
+            });
+          </script>
+          <p></p>
+        </div>
+        <div>
+          <h3>Wrong</h3>
+          <span><bold>33,3%</bold></span
+          ><br />
+          <span>2/6 questions</span>
+        </div>
+      </section>
+      <footer>
+        <div>
+          <button class="">RATE US</button>
+        </div>
+      </footer>
     </main>
   </body>
 </html>

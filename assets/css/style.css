@@ -26,11 +26,20 @@ body {
   background-image: url('/assets/img/bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Outfit', sans-serif;
 }
 
 .container {
   width: 1250px;
-  margin: 0 auto;
+  margin: 30px auto;
+  /* border: 2px solid red; */
 }
 
 .centred {
@@ -52,8 +61,15 @@ body {
   font-size: 20px;
   font-weight: bold;
   padding: 10px 40px;
-  box-shadow: 0 0 30px 2px #9cffff, 0 0 30px 2px #9cffff, 0 0 30px 2px #9cffff,
-    0 0 30px 2px #9cffff;
+
+  /* TODO aggiustare ombra */
+  box-shadow: 0 0 7px 10px #9cffff, 0 0 7px 10px #9cffff, 0 0 7px 10px #9cffff,
+    0 0 7px 10px #9cffff;
+  color: #000000;
+}
+
+h1 {
+  font-size: 60px;
 }
 
 /*-- WELCOME PAGE ---------------------------------------------------*/
@@ -63,3 +79,37 @@ body {
 /*-- RESULTS PAGE ---------------------------------------------------*/
 
 /*-- FEEDBACK PAGE --------------------------------------------------*/
+header {
+  margin-bottom: 60px;
+}
+
+#feedback form {
+  margin-top: 20px;
+}
+
+h2.feedbackSubtitle {
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
+#ratingStars {
+  margin-bottom: 60px;
+}
+
+#feedbackText {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #d20094;
+  padding: 10px 30px;
+  width: 60%;
+  font-size: 1em;
+}
+
+#textContainer {
+  margin-bottom: 70px;
+}
