@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+/* 
+  Accent color
+    color: #00ffff;
+  
+  Answer button color
+    color: #d20094;
+    color: #900080;
+
+  Titles font
+    font-family: "Outfit", sans-serif;
+    font-size: 60px;
+
+  Descriptions font
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+*/
+
+body {
+  background-image: url('/assets/img/bg.jpg');
+}
+
+.container {
+  width: 952px;
+  margin: 0 auto;
+}
+
+.centred {
+  text-align: center;
+}
+
+.highlighted {
+  color: #900080;
+}
+
+#logo {
+  width: 15%;
+}
+
+#btnProceed,
+#btnMoreInfo {
+  border: none;
+  background-color: #00ffff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 40px;
+  box-shadow: 0 0 30px 2px #9cffff, 0 0 30px 2px #9cffff, 0 0 30px 2px #9cffff,
+    0 0 30px 2px #9cffff;
+}
+
+/*-- WELCOME PAGE ---------------------------------------------------*/
+
+/*-- QUESTIONS PAGE -------------------------------------------------*/
+
+/*-- RESULTS PAGE ---------------------------------------------------*/
+
+/*-- FEEDBACK PAGE --------------------------------------------------*/
