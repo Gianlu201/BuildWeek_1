@@ -19,7 +19,149 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Feedback Page</title>
+
+    <!-- Collegamenti a fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body></body>
+  <body id="feedback">
+    <div class="container">
+      <header>
+        <div>
+          <img
+            id="logo"
+            src="/assets/img/epicode_logo.png"
+            alt="EPICODE_logo"
+          />
+        </div>
+      </header>
+      <main class="centred">
+        <section>
+          <h1>Tell us how it's going</h1>
+          <form>
+            <div>
+              <h2 class="feedbackSubtitle">
+                From 0 to 10, how likely are you to recommend EPICODE<br />
+                to a friend or a colleague?
+              </h2>
+              <div id="ratingStars">
+                <span
+                  ><input
+                    class="hidden"
+                    type="radio"
+                    id="star1"
+                    value="1"
+                    name="rating" /><label for="star1"
+                    ><img src="assets/img/star.svg" alt="1 stella" /></label
+                ></span>
+                <span
+                  ><input
+                    class="hidden"
+                    type="radio"
+                    id="star2"
+                    value="2"
+                    name="rating" /><label for="star2"
+                    ><img src="assets/img/star.svg" alt="1 stella" /></label
+                ></span>
+                <span
+                  ><input
+                    class="hidden"
+                    type="radio"
+                    id="star3"
+                    value="3"
+                    name="rating" /><label for="star3"
+                    ><img src="assets/img/star.svg" alt="1 stella" /></label
+                ></span>
+                <span
+                  ><input
+                    class="hidden"
+                    type="radio"
+                    id="star4"
+                    value="4"
+                    name="rating" /><label for="star4"
+                    ><img src="assets/img/star.svg" alt="1 stella" /></label
+                ></span>
+                <span
+                  ><input
+                    class="hidden"
+                    type="radio"
+                    id="star5"
+                    value="5"
+                    name="rating" /><label for="star5"
+                    ><img src="assets/img/star.svg" alt="1 stella" /></label
+                ></span>
+                <span
+                  ><input
+                    class="hidden"
+                    type="radio"
+                    id="star6"
+                    value="6"
+                    name="rating" /><label for="star6"
+                    ><img src="assets/img/star.svg" alt="1 stella" /></label
+                ></span>
+                <span
+                  ><input
+                    class="hidden"
+                    type="radio"
+                    id="star7"
+                    value="7"
+                    name="rating" /><label for="star7"
+                    ><img src="assets/img/star.svg" alt="1 stella" /></label
+                ></span>
+                <span
+                  ><input
+                    class="hidden"
+                    type="radio"
+                    id="star8"
+                    value="8"
+                    name="rating" /><label for="star8"
+                    ><img src="assets/img/star.svg" alt="1 stella" /></label
+                ></span>
+                <span
+                  ><input
+                    class="hidden"
+                    type="radio"
+                    id="star9"
+                    value="9"
+                    name="rating" /><label for="star9"
+                    ><img src="assets/img/star.svg" alt="1 stella" /></label
+                ></span>
+                <span
+                  ><input
+                    class="hidden"
+                    type="radio"
+                    id="star10"
+                    value="10"
+                    name="rating" /><label for="star10"
+                    ><img src="assets/img/star.svg" alt="1 stella" /></label
+                ></span>
+              </div>
+            </div>
+            <div>
+              <h2 class="feedbackSubtitle">
+                Leave us an open feedback about you experience so far
+              </h2>
+              <div id="textContainer">
+                <input
+                  id="feedbackText"
+                  type="text"
+                  placeholder="Write your comment here"
+                />
+              </div>
+            </div>
+            <div>
+              <button id="btnProceed">MORE INFO</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
