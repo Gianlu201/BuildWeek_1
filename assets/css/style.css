@@ -52,6 +52,7 @@ h4 {
 
 #logo {
   width: 15%;
+  display: block;
 }
 
 #btnProceed,
@@ -75,6 +76,10 @@ h1 {
 /*-- WELCOME PAGE ---------------------------------------------------*/
 
 /*-- QUESTIONS PAGE -------------------------------------------------*/
+#questions header {
+  display: flex;
+  justify-content: space-between;
+}
 
 /*-- RESULTS PAGE ---------------------------------------------------*/
 
