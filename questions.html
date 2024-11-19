@@ -22,16 +22,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>quiz</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   </head>
   <body id="questions">
     <div class="container">
       <header>
         <img src="assets/img/epicode_logo.png" alt="epicode_logo" id="logo" />
         <div id="timer">
-          <div id="timerText">
+          <canvas id="timerChart"></canvas>
+          <!-- <div id="timerText">
             <p>SECONDS</p>
             <div id="contoAllaRovescia"></div>
-            <p>REMAINING</p>
+            <p>REMAINING</p> -->
           </div>
         </div>
       </header>
@@ -41,23 +44,24 @@
         </div>
 
         <form id="answersBox">
-          <!-- <div>
-            <input type="radio" id="button1" class="hidden" value="" />
-            <label for="button1">Risposta uno</label>
+          <div id="answersContainer">
+            <!-- <div>
+              <input type="radio" id="button1" class="hidden" value="" />
+              <label for="button1">Risposta uno</label>
+            </div>
+            <div>
+              <input type="radio" id="button2" class="hidden" value="" />
+              <label for="button2">Risposta uno</label>
+            </div>
+            <div>
+              <input type="radio" id="button3" class="hidden" value="" />
+              <label for="button3">Risposta uno</label>
+            </div>
+            <div>
+              <input type="radio" id="button4" class="hidden" value="" />
+              <label for="button4">Risposta uno</label>
+            </div> -->
           </div>
-          <div>
-            <input type="radio" id="button2" class="hidden" value="" />
-            <label for="button2">Risposta uno</label>
-          </div>
-          <div>
-            <input type="radio" id="button3" class="hidden" value="" />
-            <label for="button3">Risposta uno</label>
-          </div>
-          <div>
-            <input type="radio" id="button4" class="hidden" value="" />
-            <label for="button4">Risposta uno</label>
-          </div> -->
-
           <button id="btnProceed" type="submit">PROCEED</button>
         </form>
       </main>

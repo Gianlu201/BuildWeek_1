@@ -98,25 +98,8 @@ const btnProceed = document.getElementById('btnProceed');
 let questionIndex = 0;
 const questionText = document.getElementById('domanda');
 const counter = document.getElementById('counter');
+const answersContainer = document.getElementById('answersContainer');
 
-// ---------------------------------------------------------
-let timeLeft = 30;
-
-// Aggiorna il timer ogni secondo
-const timerElement = document.getElementById('timer');
-const countdown = setInterval(() => {
-  // Aggiorna il contenuto HTML
-  timerElement.textContent = timeLeft;
-
-  // Riduci il tempo
-  timeLeft--;
-
-  // Se il timer arriva a 0, fermalo
-  if (timeLeft < 0) {
-    clearInterval(countdown);
-    timerElement.textContent = 'Tempo scaduto!';
-  }
-}, 1000);
 // ---------------------------------------------------------
 
 //Elenco funzioni
@@ -147,8 +130,8 @@ function init() {
   showQuestion(shuffledQuestions, questionIndex);
   questionNumber(questionIndex);
 
-  shuffleAnswers(shuffledQuestions, questionIndex);
-  showAnswers();
+  let answersArray = shuffleAnswers(shuffledQuestions, questionIndex);
+  showAnswers(answersArray);
 
   timerStart();
 }
@@ -192,5 +175,107 @@ function shuffleAnswers(arr, index) {
     originalAnswers.splice(answer, 1);
   }
 
-  console.log(myShuffleAnswers);
+  return myShuffleAnswers;
+}
+
+function showAnswers(arr) {
+  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    const myDiv = document.createElement('div');
+    const myRadio = document.createElement('input');
+    myRadio.type = 'radio';
+    myRadio.id = `button${i + 1}`;
+    myRadio.classList.add('hidden');
+    myRadio.name = 'answer';
+    myRadio.value = arr[i];
+
+    const myLabel = document.createElement('label');
+    myLabel.setAttribute('for', `button${i + 1}`);
+    myLabel.innerText = arr[i];
+
+    myDiv.appendChild(myRadio);
+    myDiv.appendChild(myLabel);
+
+    answersContainer.appendChild(myDiv);
+    console.log(myRadio);
+  }
+}
+
+// Funzioni timer
+
+let timeLeft = 30; // Durata iniziale del timer
+
+// Configura il grafico Chart.js
+const ctx = document.getElementById('timerChart').getContext('2d');
+
+const timerChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    datasets: [
+      {
+        data: [timeLeft, 0], // Tempo rimanente e tempo trascorso
+        backgroundColor: ['#4caf50', 'rgba(0, 0, 0, 0)'],
+        borderWidth: 0,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    cutout: '70%', // Aumenta il buco centrale
+    plugins: {
+      tooltip: {
+        enabled: false, // Disabilita i tooltip per pulizia
+      },
+    },
+  },
+  plugins: [
+    {
+      id: 'center-text',
+      beforeDraw: (chart) => {
+        const { width } = chart;
+        const { top, bottom } = chart.chartArea;
+        const ctx = chart.ctx;
+
+        ctx.save();
+
+        // Calcola la posizione centrale
+        const centerX = width / 2;
+        const centerY = (top + bottom) / 2;
+
+        // Aggiungi il testo
+        ctx.font = 'bold 20px Arial';
+        ctx.fillStyle = '#ffffff';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(`${timeLeft}`, centerX, centerY);
+
+        ctx.restore();
+      },
+    },
+  ],
+});
+
+// timerStart();
+// Recupera l'elemento HTML per il timer
+
+function timerStart() {
+  const timerElement = document.getElementById('timer');
+
+  // Funzione per aggiornare il timer e il grafico
+  const countdown = setInterval(() => {
+    // Aggiorna il testo del timer
+
+    timeLeft--;
+    // Aggiorna i dati del grafico
+    timerChart.data.datasets[0].data = [timeLeft, 30 - timeLeft];
+    timerChart.update();
+
+    // Riduci il tempo
+
+    // Ferma il timer e aggiorna il testo se il tempo è scaduto
+    if (timeLeft === 0) {
+      clearInterval(countdown);
+      timerElement.textContent = 'Tempo scaduto!';
+    }
+  }, 1000);
 }
