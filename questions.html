@@ -41,7 +41,7 @@
         </div>
 
         <form id="answersBox">
-          <div>
+          <!-- <div>
             <input type="radio" id="button1" class="hidden" value="" />
             <label for="button1">Risposta uno</label>
           </div>
@@ -56,16 +56,21 @@
           <div>
             <input type="radio" id="button4" class="hidden" value="" />
             <label for="button4">Risposta uno</label>
-          </div>
+          </div> -->
 
           <button id="btnProceed" type="submit">PROCEED</button>
         </form>
       </main>
       <footer>
         <div>
-          <h4>Question x<span class="highlighted"> / 10</span></h4>
+          <h4>
+            Question <span id="counter">x</span
+            ><span class="highlighted"> / 10</span>
+          </h4>
         </div>
       </footer>
     </div>
+
+    <script src="assets/js/questions.js"></script>
   </body>
 </html>

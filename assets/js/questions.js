@@ -94,6 +94,11 @@ const questions = [
   },
 ];
 
+const btnProceed = document.getElementById('btnProceed');
+let questionIndex = 0;
+const questionText = document.getElementById('domanda');
+const counter = document.getElementById('counter');
+
 // ---------------------------------------------------------
 let timeLeft = 30;
 
@@ -131,3 +136,61 @@ const countdown = setInterval(() => {
   timerStart()
 
 */
+
+document.addEventListener('load', init());
+
+function init() {
+  disableButton();
+
+  const shuffledQuestions = getRandomQuestion(questions);
+
+  showQuestion(shuffledQuestions, questionIndex);
+  questionNumber(questionIndex);
+
+  shuffleAnswers(shuffledQuestions, questionIndex);
+  showAnswers();
+
+  timerStart();
+}
+
+function disableButton() {
+  btnProceed.classList.add('invisible');
+}
+
+function getRandomQuestion(arr) {
+  const originalQuestions = [...arr];
+  const myQuestions = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const question = Math.floor(Math.random() * originalQuestions.length);
+    myQuestions.push(originalQuestions[question]);
+    originalQuestions.splice(question, 1);
+  }
+
+  return myQuestions;
+}
+
+function showQuestion(arr, index) {
+  questionText.innerText = `${arr[index].question}`;
+}
+
+function questionNumber(index) {
+  counter.innerText = index + 1;
+}
+
+function shuffleAnswers(arr, index) {
+  const myAnswers = arr[index].incorrect_answers.concat(
+    arr[index].correct_answer
+  );
+
+  const originalAnswers = [...myAnswers];
+  const myShuffleAnswers = [];
+
+  for (let i = 0; i < myAnswers.length; i++) {
+    const answer = Math.floor(Math.random() * originalAnswers.length);
+    myShuffleAnswers.push(originalAnswers[answer]);
+    originalAnswers.splice(answer, 1);
+  }
+
+  console.log(myShuffleAnswers);
+}
