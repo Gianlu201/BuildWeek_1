@@ -216,7 +216,6 @@ fishing.forEach((element) => {
 
 let timeLeft = 30;
 
-/
 const ctx = document.getElementById("timerChart").getContext("2d");
 
 const timerChart = new Chart(ctx, {
