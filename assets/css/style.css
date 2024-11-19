@@ -216,6 +216,9 @@ p#sentence {
   justify-content: center;
   font-size: 1.5em;
 }
+.label {
+  padding: 30px 20%;
+}
 
 /*-- RESULTS PAGE ---------------------------------------------------*/
 .containerResults {
