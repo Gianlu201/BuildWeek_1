@@ -93,3 +93,21 @@ const questions = [
     incorrect_answers: ['Python', 'C', 'Jakarta'],
   },
 ];
+
+let timeLeft = 30;
+
+// Aggiorna il timer ogni secondo
+const timerElement = document.getElementById('timer');
+const countdown = setInterval(() => {
+  // Aggiorna il contenuto HTML
+  timerElement.textContent = timeLeft;
+
+  // Riduci il tempo
+  timeLeft--;
+
+  // Se il timer arriva a 0, fermalo
+  if (timeLeft < 0) {
+    clearInterval(countdown);
+    timerElement.textContent = 'Tempo scaduto!';
+  }
+}, 1000);
