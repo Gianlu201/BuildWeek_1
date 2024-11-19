@@ -25,3 +25,4 @@ function check() {
 }
 
 // TODO far scomparire il contenuto di p quando viene flaggato il box
+

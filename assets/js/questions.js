@@ -99,6 +99,10 @@ let questionIndex = 0;
 const questionText = document.getElementById("domanda");
 const counter = document.getElementById("counter");
 const answersContainer = document.getElementById("answersContainer");
+const arrayAnswers = [];
+let shuffledQuestions;
+let answersArray;
+let timeLeft;
 
 // ---------------------------------------------------------
 
@@ -125,13 +129,14 @@ document.addEventListener("load", init());
 function init() {
   disableButton();
 
-  const shuffledQuestions = getRandomQuestion(questions);
+  shuffledQuestions = getRandomQuestion(questions);
 
   showQuestion(shuffledQuestions, questionIndex);
   questionNumber(questionIndex);
 
-  let answersArray = shuffleAnswers(shuffledQuestions, questionIndex);
+  answersArray = shuffleAnswers(shuffledQuestions, questionIndex);
   showAnswers(answersArray);
+  clickable();
 
   timerStart();
 }
@@ -185,7 +190,7 @@ function showAnswers(arr) {
   console.log(arr);
   for (let i = 0; i < arr.length; i++) {
     const myDiv = document.createElement("div");
-    myDiv.classList.add("clickkata");
+    myDiv.classList.add("pressed");
     const myRadio = document.createElement("input");
     myRadio.type = "radio";
     myRadio.id = `button${i + 1}`;
@@ -194,7 +199,7 @@ function showAnswers(arr) {
     myRadio.value = arr[i];
 
     const myLabel = document.createElement("label");
-    myLabel.classList.add('label');
+    myLabel.classList.add("label");
     myLabel.setAttribute("for", `button${i + 1}`);
     myLabel.innerText = arr[i];
 
@@ -204,26 +209,20 @@ function showAnswers(arr) {
     answersContainer.appendChild(myDiv);
   }
 }
-const fishing = document.querySelectorAll(".clickkata");
-console.log(fishing);
-fishing.forEach((element) => {
-  element.addEventListener("click", function () {
-    ableButton();
-  });
-});
 
-// Funzioni timer
+// TO DO riguardare Canvas all'interno del timer 
+// timerStart();
 
-let timeLeft = 30;
-
-const ctx = document.getElementById("timerChart").getContext("2d");
+function timerStart() {
+  timeLeft = 30;
+  const ctx = document.getElementById("timerChart").getContext("2d");
 
 const timerChart = new Chart(ctx, {
   type: "doughnut",
   data: {
     datasets: [
       {
-        data: [timeLeft, 0], 
+        data: [timeLeft, 0],
         backgroundColor: ["#4caf50", "rgba(0, 0, 0, 0)"],
         borderWidth: 0,
       },
@@ -231,10 +230,10 @@ const timerChart = new Chart(ctx, {
   },
   options: {
     responsive: true,
-    cutout: "70%", 
+    cutout: "70%",
     plugins: {
       tooltip: {
-        enabled: false, 
+        enabled: false,
       },
     },
   },
@@ -248,11 +247,9 @@ const timerChart = new Chart(ctx, {
 
         ctx.save();
 
-        
         const centerX = width / 2;
         const centerY = (top + bottom) / 2;
 
-        
         ctx.font = "bold 20px Arial";
         ctx.fillStyle = "#ffffff";
         ctx.textAlign = "center";
@@ -265,45 +262,71 @@ const timerChart = new Chart(ctx, {
   ],
 });
 
-// timerStart();
-
-
-function timerStart() {
   const timerElement = document.getElementById("timer");
 
-  
   const countdown = setInterval(() => {
-    
-
     timeLeft--;
-    
+
     timerChart.data.datasets[0].data = [timeLeft, 30 - timeLeft];
     timerChart.update();
 
-    
-
-    
     if (timeLeft === 0) {
       clearInterval(countdown);
       timerElement.textContent = "Tempo scaduto!";
     }
   }, 1000);
 }
-btnProceed.addEventListener("click", function () {
+
+function clickable() {
+  const fishing = document.querySelectorAll(".pressed");
+  fishing.forEach((element) => {
+    element.addEventListener("click", function () {
+      ableButton();
+    });
+  });
+}
+
+btnProceed.addEventListener("click", function (e) {
   e.preventDefault();
-  btnCliccato();
+  check();
+  if(questionIndex===9){
+    toLocalStorage(arrayAnswers);
+    location.assign('results.html');
+  }
+
+  questionIndex++;
+  answersContainer.innerHTML='';
+
+  disableButton();
+
+  showQuestion(shuffledQuestions, questionIndex);
+  questionNumber(questionIndex);
+
+  answersArray = shuffleAnswers(shuffledQuestions, questionIndex);
+  showAnswers(answersArray);
+  clickable();
+
+  timerStart();
 });
-function ck(){
-  const array = document.querySelectorAll('input[type=radio]'); 
+
+function check() {
+  const array = document.querySelectorAll("input[type=radio]");
   console.log(array);
-  array.forEach((element)=>{
-    if(element.checked){
-      console.log(element.value);
+  array.forEach((element) => {
+    if (element.checked) {
+      btnCliccato(element.value);
+      console.log(arrayAnswers);
     }
-  })
+  });
 }
-ck();
-const localStorage = [];
-function btnCliccato(e) {
-  localStorage.push();
+
+function btnCliccato(ele) {
+  arrayAnswers.push(ele);
 }
+
+function toLocalStorage(array){
+  let myString = JSON.stringify(array);
+  localStorage.setItem('string', myString)
+}
+
+// TODO implementare la funzione di fine timer 
