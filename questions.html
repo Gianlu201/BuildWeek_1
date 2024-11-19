@@ -23,29 +23,49 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>quiz</title>
   </head>
-  <body>
-    <header>
-      <img src="assets/img/epicode_logo.png" alt="epicode_logo" />
-      <div id="timer">
-        <div id="timerText">
-          <p>SECONDS</p>
-          <div id="contoAllaRovescia"></div>
-          <p>REMAINING</p>
+  <body id="questions">
+    <div class="container">
+      <header>
+        <img src="assets/img/epicode_logo.png" alt="epicode_logo" id="logo" />
+        <div id="timer">
+          <div id="timerText">
+            <p>SECONDS</p>
+            <div id="contoAllaRovescia"></div>
+            <p>REMAINING</p>
+          </div>
         </div>
-      </div>
-    </header>
-    <main>
-      <h1 id="domanda"></h1>
-      <section>
+      </header>
+      <main class="centred">
+        <div id="questionBox">
+          <h1 id="domanda">In the programming</h1>
+        </div>
+
+        <form id="answersBox">
+          <div>
+            <input type="radio" id="button1" class="hidden" value="" />
+            <label for="button1">Risposta uno</label>
+          </div>
+          <div>
+            <input type="radio" id="button2" class="hidden" value="" />
+            <label for="button2">Risposta uno</label>
+          </div>
+          <div>
+            <input type="radio" id="button3" class="hidden" value="" />
+            <label for="button3">Risposta uno</label>
+          </div>
+          <div>
+            <input type="radio" id="button4" class="hidden" value="" />
+            <label for="button4">Risposta uno</label>
+          </div>
+
+          <button id="btnProceed" type="submit">PROCEED</button>
+        </form>
+      </main>
+      <footer>
         <div>
-          <input type="radio" id="button1" />
+          <h4>Question x<span class="highlighted"> / 10</span></h4>
         </div>
-      </section>
-    </main>
-    <footer>
-      <div>
-        <h4></h4>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </body>
 </html>

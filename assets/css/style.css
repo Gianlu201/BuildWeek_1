@@ -5,10 +5,10 @@
   color: #ffffff;
 }
 
-/* 
+/*
   Accent color
     color: #00ffff;
-  
+
   Answer button color
     color: #d20094;
     color: #900080;
@@ -26,11 +26,20 @@ body {
   background-image: url('/assets/img/bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Outfit', sans-serif;
 }
 
 .container {
-  width: 1250px;
-  margin: 0 auto;
+  width: 1150px;
+  margin: 30px auto;
+  /* border: 2px solid red; */
 }
 
 .centred {
@@ -43,23 +52,227 @@ body {
 
 #logo {
   width: 15%;
+  display: block;
 }
 
 #btnProceed,
 #btnMoreInfo {
   border: none;
   background-color: #00ffff;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 10px 40px;
-  box-shadow: 0 0 30px 2px #9cffff, 0 0 30px 2px #9cffff, 0 0 30px 2px #9cffff,
-    0 0 30px 2px #9cffff;
+  font-size: 21px;
+  font-weight: bolder;
+  padding: 12px 60px;
+
+  /* TODO aggiustare ombra */
+  box-shadow: 10px 10px 5px #265f89, -10px -10px 5px #265f89,
+    10px -10px 5px #265f89, -10px 10px 5px #265f89;
+  color: #000000;
+}
+
+/* TODO abilitare e configurare per le altre pagine */
+/* #btnProceed:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+} */
+
+h1 {
+  font-size: 60px;
+}
+header {
+  padding-top: 10px;
 }
 
 /*-- WELCOME PAGE ---------------------------------------------------*/
+#title {
+  margin: 0 50px;
+  padding: 50px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+.description {
+  margin: 0 60px;
+  padding: 10px 20px;
+}
+
+.info {
+  margin: 0 60px;
+  /* font-family: "Inter", sans-serif; */
+  font-size: 20px;
+  padding: 10px 20px;
+}
+
+.checkStart {
+  padding: 30px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+.checkStart p {
+  margin: 0 60px 40px 80px;
+}
+
+.list1 {
+  padding: 15px;
+  margin: 20px 0px 20px 25px;
+}
+
+.list1 li {
+  margin: 0 60px;
+  font-size: 20px;
+}
+
+#startQuiz {
+  background: black;
+  /* color: white; */
+  opacity: 0.2;
+}
 
 /*-- QUESTIONS PAGE -------------------------------------------------*/
+#questions header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 130px;
+}
+
+#questionBox {
+  width: 1100px;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#answersBox {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: 1000px;
+  margin: 60px auto 0;
+}
+
+form > div {
+  width: 43%;
+  background-color: #2b2956;
+  padding: 30px;
+  font-size: 1.3em;
+  border: solid 3px;
+  border-radius: 100px;
+  /* TODO aggiustare il bordo attorno alle risposte */
+  border-color: white #403f60 #2b2956 #403f60;
+}
+
+.checked {
+  background: linear-gradient(to top, #900080, #d20094);
+}
+
+#questions #btnProceed {
+  position: relative;
+  margin-top: 20px;
+  right: -330px;
+  padding: 10px 70px;
+}
+
+#questions footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+}
 
 /*-- RESULTS PAGE ---------------------------------------------------*/
+.containerResults {
+  width: 1100px;
+  margin: 30px auto;
+}
+
+#results #sottotitolo {
+  font-size: 1.8em;
+  font-weight: normal;
+}
+
+#sectMain {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#sectMain div.correct {
+  text-align: left;
+}
+
+#sectMain div.wrong {
+  text-align: right;
+}
+
+#sectMain h3 {
+  font-size: 70px;
+  font-weight: normal;
+}
+
+#sectMain .percent {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+#sectMain .questionResults {
+  font-size: 1.3em;
+}
+
+#results footer {
+  margin-top: 50px;
+}
+
+#btnRateUs {
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  padding: 20px 80px;
+  box-shadow: 1px 1px 20px 0px #00ffff, 1px 1px 20px 0 #00ffff,
+    1px 1px 20px 0 #00ffff, 1px 1px 20px 0 #00ffff;
+}
 
 /*-- FEEDBACK PAGE --------------------------------------------------*/
+header {
+  margin-bottom: 60px;
+}
+
+#feedback form {
+  margin-top: 20px;
+}
+
+h2.feedbackSubtitle {
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
+#ratingStars {
+  margin-bottom: 60px;
+}
+
+#feedbackText {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #d20094;
+  padding: 10px 30px;
+  width: 60%;
+  font-size: 1em;
+}
+
+#textContainer {
+  margin-bottom: 70px;
+}

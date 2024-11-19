@@ -34,67 +34,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
   </head>
-  <body>
-    <header>
-      <img class="" src="/assets/img/epicode_logo.png">
-    </header>
-    <main>
-      <section class="titoli">
-        <h1 class="titolo"><strong>Results</strong></h1>
-        <h2 class="sottotitolo">The summary of your answers:</h2>
-      </section>
-      <section class="">
-        <h3>Correct</h3>
-        <span><bold>66,7%</bold></span><br>
-        <span>4/6 question</span>
-      
-      <div class="">
-        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+  <body id="results">
+    <div class="containerResults centred">
+      <header>
+        <img id="logo" src="/assets/img/epicode_logo.png" />
+      </header>
+      <main>
+        <section class="titoli">
+          <h1 class="titolo"><strong>Results</strong></h1>
+          <h2 id="sottotitolo">The summary of your answers:</h2>
+        </section>
+        <section id="sectMain">
+          <div class="correct">
+            <h3>Correct</h3>
+            <span class="percent"><bold>66,7%</bold></span
+            ><br />
+            <span class="questionResults">4/6 question</span>
+          </div>
 
-<script>
-var xValues = [];
-var yValues = [44, 15];
-var barColors = [
-  "#b91d47",
-  "#00aba9"
-];
+          <div class="">
+            <canvas
+              id="myChart"
+              style="width: 500px; height: 500px; max-width: 500px"
+            ></canvas>
+          </div>
 
-new Chart("myChart", {
-  type: "doughnut",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: ""
-    }
-  }
-});
-</script>
-<p></p>
-
-      </div>
-      <div>
-        <h3>Wrong</h3>
-        <span><bold>33,3%</bold></span><br>
-        <span>2/6 questions</span>
-      </div>
-    </section>
-    <footer>
-    <div>
-      <button class="">RATE US</button>
+          <div class="wrong">
+            <h3>Wrong</h3>
+            <span class="percent"><bold>33,3%</bold></span
+            ><br />
+            <span class="questionResults">2/6 questions</span>
+          </div>
+        </section>
+        <footer>
+          <div>
+            <button id="btnRateUs">RATE US</button>
+          </div>
+        </footer>
+      </main>
     </div>
-  </footer>
 
-      
-      </style>
-    </main>
+    <script src="assets/js/results.js"></script>
   </body>
 </html>
