@@ -94,6 +94,7 @@ const questions = [
   },
 ];
 
+// ---------------------------------------------------------
 let timeLeft = 30;
 
 // Aggiorna il timer ogni secondo
@@ -111,3 +112,22 @@ const countdown = setInterval(() => {
     timerElement.textContent = 'Tempo scaduto!';
   }
 }, 1000);
+// ---------------------------------------------------------
+
+//Elenco funzioni
+
+/*
+  init()
+
+  disableButton()
+
+  getRandomQuestion()
+  showQuestion()
+  questionNumber()
+
+  shuffleAnswers()
+  showAnswers()
+
+  timerStart()
+
+*/
