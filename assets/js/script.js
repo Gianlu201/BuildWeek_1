@@ -23,3 +23,5 @@ function check() {
     return false;
   }
 }
+
+// TODO far scomparire il contenuto di p quando viene flaggato il box
