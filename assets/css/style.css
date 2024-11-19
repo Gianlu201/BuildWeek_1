@@ -297,6 +297,25 @@ h2.feedbackSubtitle {
   margin-bottom: 60px;
 }
 
+#ratingStars label img {
+  width: 30px;
+  cursor: pointer;
+  filter: grayscale(100%); /* Stelle inizialmente in bianco e nero */
+  transition: 0.3s ease; /* Transizione fluida */
+}
+
+/* Quando passi sopra una stella */
+#ratingStars label:hover img,
+#ratingStars label:hover ~ label img {
+  filter: none; /* Rimuove il filtro bianco e nero (mostra il colore originale) */
+}
+
+/* Quando una stella è selezionata */
+#ratingStars input:checked + label img,
+#ratingStars input:checked + label ~ label img {
+  filter: none;
+}
+
 #feedbackText {
   background-color: transparent;
   border: none;
