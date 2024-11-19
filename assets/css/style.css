@@ -113,6 +113,10 @@ header {
   font-size: 18px;
 }
 
+p#sentence {
+  color: red;
+}
+
 .checkStart p {
   margin: 0 60px 40px 80px;
 }
