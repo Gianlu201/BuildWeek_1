@@ -214,9 +214,9 @@ fishing.forEach((element) => {
 
 // Funzioni timer
 
-let timeLeft = 30; // Durata iniziale del timer
+let timeLeft = 30;
 
-// Configura il grafico Chart.js
+/
 const ctx = document.getElementById("timerChart").getContext("2d");
 
 const timerChart = new Chart(ctx, {
@@ -224,7 +224,7 @@ const timerChart = new Chart(ctx, {
   data: {
     datasets: [
       {
-        data: [timeLeft, 0], // Tempo rimanente e tempo trascorso
+        data: [timeLeft, 0], 
         backgroundColor: ["#4caf50", "rgba(0, 0, 0, 0)"],
         borderWidth: 0,
       },
@@ -232,10 +232,10 @@ const timerChart = new Chart(ctx, {
   },
   options: {
     responsive: true,
-    cutout: "70%", // Aumenta il buco centrale
+    cutout: "70%", 
     plugins: {
       tooltip: {
-        enabled: false, // Disabilita i tooltip per pulizia
+        enabled: false, 
       },
     },
   },
@@ -249,11 +249,11 @@ const timerChart = new Chart(ctx, {
 
         ctx.save();
 
-        // Calcola la posizione centrale
+        
         const centerX = width / 2;
         const centerY = (top + bottom) / 2;
 
-        // Aggiungi il testo
+        
         ctx.font = "bold 20px Arial";
         ctx.fillStyle = "#ffffff";
         ctx.textAlign = "center";
@@ -267,23 +267,23 @@ const timerChart = new Chart(ctx, {
 });
 
 // timerStart();
-// Recupera l'elemento HTML per il timer
+
 
 function timerStart() {
   const timerElement = document.getElementById("timer");
 
-  // Funzione per aggiornare il timer e il grafico
+  
   const countdown = setInterval(() => {
-    // Aggiorna il testo del timer
+    
 
     timeLeft--;
-    // Aggiorna i dati del grafico
+    
     timerChart.data.datasets[0].data = [timeLeft, 30 - timeLeft];
     timerChart.update();
 
-    // Riduci il tempo
+    
 
-    // Ferma il timer e aggiorna il testo se il tempo è scaduto
+    
     if (timeLeft === 0) {
       clearInterval(countdown);
       timerElement.textContent = "Tempo scaduto!";
