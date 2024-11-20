@@ -16,7 +16,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn\'t get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -172,8 +172,8 @@ function questionNumber(index) {
 function shuffleAnswers(arr, index) {
   const myAnswers = arr[index].incorrect_answers.concat(
     arr[index].correct_answer
-  );
 
+  );
   const originalAnswers = [...myAnswers];
   const myShuffleAnswers = [];
 
@@ -185,6 +185,7 @@ function shuffleAnswers(arr, index) {
 
   return myShuffleAnswers;
 }
+
 
 function showAnswers(arr) {
   console.log(arr);
@@ -211,7 +212,6 @@ function showAnswers(arr) {
 }
 
 // TO DO riguardare Canvas all'interno del timer 
-// timerStart();
 
 function timerStart() {
   timeLeft = 30;
@@ -271,7 +271,6 @@ function timerStart() {
     timerChart.update();
 
     if (timeLeft === 0) {
-      //clearInterval(countdown);
       btnCliccato('undefined');
       timeOut();
     }
@@ -282,9 +281,17 @@ function clickable() {
   const fishing = document.querySelectorAll(".pressed");
   fishing.forEach((element) => {
     element.addEventListener("click", function () {
-      ableButton();
+      unselectAllButtons();
+      element.classList.add("checked");
+    ableButton();
     });
   });
+}
+function unselectAllButtons() {
+  const previousSelected = document.querySelector('.checked');
+  if (previousSelected) {
+      previousSelected.classList.remove('checked');
+  }
 }
 
 btnProceed.addEventListener("click", function (e) {
@@ -297,7 +304,6 @@ btnProceed.addEventListener("click", function (e) {
 
 function check() {
   const array = document.querySelectorAll("input[type=radio]");
-  console.log(array);
 
   for (let i = 0; i < array.length; i++) {
     if (array[i].checked) {
@@ -308,12 +314,13 @@ function check() {
 
 function btnCliccato(ele) {
   arrayAnswers.push(ele);
+
 }
 
-function toLocalStorage(array) {
+function toLocalStorage(array1) {
   const myObj = {
     domande: shuffledQuestions,
-    risposte: array,
+    risposte: array1,
   }
   let myString = JSON.stringify(myObj);
   localStorage.setItem('string', myString)
