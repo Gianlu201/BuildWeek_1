@@ -216,51 +216,51 @@ function showAnswers(arr) {
 function timerStart() {
   timeLeft = 30;
   const ctx = document.getElementById("timerChart").getContext("2d");
-
-const timerChart = new Chart(ctx, {
-  type: "doughnut",
-  data: {
-    datasets: [
+  const timerChart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      datasets: [
+        {
+          data: [timeLeft, 0],
+          backgroundColor: ["#4caf50", "rgba(0, 0, 0, 0)"],
+          borderWidth: 0,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      cutout: "70%",
+      plugins: {
+        tooltip: {
+          enabled: false,
+        },
+      },
+    },
+    plugins: [
       {
-        data: [timeLeft, 0],
-        backgroundColor: ["#4caf50", "rgba(0, 0, 0, 0)"],
-        borderWidth: 0,
+        id: "center-text",
+        beforeDraw: (chart) => {
+          const { width } = chart;
+          const { top, bottom } = chart.chartArea;
+          const ctx = chart.ctx;
+
+          ctx.save();
+
+          const centerX = width / 2;
+          const centerY = (top + bottom) / 2;
+
+          ctx.font = "bold 20px Arial";
+          ctx.fillStyle = "#ffffff";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText(`${timeLeft}`, centerX, centerY);
+
+          ctx.restore();
+        },
       },
     ],
-  },
-  options: {
-    responsive: true,
-    cutout: "70%",
-    plugins: {
-      tooltip: {
-        enabled: false,
-      },
-    },
-  },
-  plugins: [
-    {
-      id: "center-text",
-      beforeDraw: (chart) => {
-        const { width } = chart;
-        const { top, bottom } = chart.chartArea;
-        const ctx = chart.ctx;
+  });
 
-        ctx.save();
-
-        const centerX = width / 2;
-        const centerY = (top + bottom) / 2;
-
-        ctx.font = "bold 20px Arial";
-        ctx.fillStyle = "#ffffff";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText(`${timeLeft}`, centerX, centerY);
-
-        ctx.restore();
-      },
-    },
-  ],
-});
 
   const timerElement = document.getElementById("timer");
 
@@ -271,8 +271,9 @@ const timerChart = new Chart(ctx, {
     timerChart.update();
 
     if (timeLeft === 0) {
-      clearInterval(countdown);
-      timerElement.textContent = "Tempo scaduto!";
+      //clearInterval(countdown);
+      btnCliccato('undefined');
+      timeOut();
     }
   }, 1000);
 }
@@ -289,13 +290,45 @@ function clickable() {
 btnProceed.addEventListener("click", function (e) {
   e.preventDefault();
   check();
-  if(questionIndex===9){
+
+
+  timeOut();
+});
+
+function check() {
+  const array = document.querySelectorAll("input[type=radio]");
+  console.log(array);
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].checked) {
+      btnCliccato(array[i].value);
+    }
+  }
+}
+
+function btnCliccato(ele) {
+  arrayAnswers.push(ele);
+}
+
+function toLocalStorage(array) {
+  const myObj = {
+    domande: shuffledQuestions,
+    risposte: array,
+  }
+  let myString = JSON.stringify(myObj);
+  localStorage.setItem('string', myString)
+}
+
+// funzione di fine timer 
+function timeOut() {
+  if (questionIndex === questions.length - 1) {
     toLocalStorage(arrayAnswers);
     location.assign('results.html');
   }
-
   questionIndex++;
-  answersContainer.innerHTML='';
+  answersContainer.innerHTML = '';
+
+
 
   disableButton();
 
@@ -307,26 +340,6 @@ btnProceed.addEventListener("click", function (e) {
   clickable();
 
   timerStart();
-});
-
-function check() {
-  const array = document.querySelectorAll("input[type=radio]");
-  console.log(array);
-  array.forEach((element) => {
-    if (element.checked) {
-      btnCliccato(element.value);
-      console.log(arrayAnswers);
-    }
-  });
 }
 
-function btnCliccato(ele) {
-  arrayAnswers.push(ele);
-}
 
-function toLocalStorage(array){
-  let myString = JSON.stringify(array);
-  localStorage.setItem('string', myString)
-}
-
-// TODO implementare la funzione di fine timer 
