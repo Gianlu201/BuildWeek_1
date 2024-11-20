@@ -283,14 +283,14 @@ function clickable() {
     element.addEventListener("click", function () {
       unselectAllButtons();
       element.classList.add("checked");
-    ableButton();
+      ableButton();
     });
   });
 }
 function unselectAllButtons() {
   const previousSelected = document.querySelector('.checked');
   if (previousSelected) {
-      previousSelected.classList.remove('checked');
+    previousSelected.classList.remove('checked');
   }
 }
 

@@ -1,10 +1,12 @@
 const checkbox = document.getElementById('startQuiz');
 const btnProceed = document.getElementById('btnProceed');
+const startQuiz = document.getElementById("startQuiz");
+const p = document.getElementById('sentence');
 
 btnProceed.addEventListener('click', function (event) {
   event.preventDefault();
   if (check()) {
-    window.location.assign('questions.html');
+    location.assign('questions.html');
   }
 });
 
@@ -13,16 +15,18 @@ function init() {
 }
 
 function check() {
-  const p = document.getElementById('sentence');
+
   if (checkbox.checked) {
     p.innerText = ' ';
     btnProceed.setAttribute('disable', 'false');
     return true;
   } else {
     p.innerText = 'Confirm the checkbox to start';
+
     return false;
   }
 }
-
-// TODO far scomparire il contenuto di p quando viene flaggato il box
+startQuiz.addEventListener("click", function () {
+  p.innerText = " ";
+})
 
