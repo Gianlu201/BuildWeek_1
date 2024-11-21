@@ -143,10 +143,26 @@ p#sentence {
   margin: 0;
 }
 
-#startQuiz {
-  background: black;
-  opacity: 0.2;
+#startQuiz::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #2196F3;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  display: none;
+
+  background-color: #cccccc;
 }
+
+
+
+
 
 /*-- QUESTIONS PAGE -------------------------------------------------*/
 #questions header {
