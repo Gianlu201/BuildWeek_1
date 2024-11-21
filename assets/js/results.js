@@ -1,15 +1,18 @@
-let result = "string";
+let result = 'error';
 let lecture;
 let giuste = 0;
 let sbagliate = 0;
-const wrongs = document.getElementById("wrongs");
-const corrects = document.getElementById("corrects");
+const wrongs = document.getElementById('wrongs');
+const corrects = document.getElementById('corrects');
 const ctx = document.getElementById('myChart').getContext('2d');
-const btnRateUs = document.getElementById("btnRateUs");
+const btnRateUs = document.getElementById('btnRateUs');
 
+//---------------------------------------------------------------
 
+document.addEventListener('load', init());
 
-document.addEventListener("load", init());
+// funzione di caricamento pagina
+
 function init() {
   lecture = fromLocalStorage();
   checkScore(lecture);
@@ -17,11 +20,16 @@ function init() {
   graphicShow();
 }
 
+// funzione di lettura del local storage
+
 function fromLocalStorage() {
-  const myObj = localStorage.getItem("string");
+  const myObj = localStorage.getItem('string');
   let myObj2 = JSON.parse(myObj);
   return myObj2;
 }
+
+// funzione di confronto e calcolo del risultato 
+
 function checkScore(obj) {
   for (let i = 0; i < obj.domande.length; i++) {
     if (obj.domande[i].correct_answer === obj.risposte[i]) {
@@ -29,22 +37,27 @@ function checkScore(obj) {
     } else {
       sbagliate++;
     }
-
-  }
+  };
   if (giuste >= 6) {
     result = `CONGRATULATION, you passed!`;
   } else {
-    result = "SORRY, you didn\'t pass!";
+    result = 'SORRY, you didn\'t pass!';
   }
 }
+
+// funzione di stampa del risultato 
+
 function printScore() {
   wrongs.innerText = sbagliate;
   corrects.innerText = giuste;
-  document.getElementById("correctPercentage").innerText = giuste / lecture.domande.length * 100;
-  document.getElementById("wrongPercentage").innerText = sbagliate / lecture.domande.length * 100;
+  document.getElementById('correctPercentage').innerText = giuste / lecture.domande.length * 100;
+  document.getElementById('wrongPercentage').innerText = sbagliate / lecture.domande.length * 100;
 }
+
+// funzione per creazione del grafico e inserimento dei dati del risultato
+
 function graphicShow() {
-  var xValues = ["corrects", "wrongs"];
+  var xValues = ['corrects', 'wrongs'];
   var yValues = [giuste, sbagliate];
   var barColors = ['#b91d47', '#00aba9'];
   new Chart(ctx, {
@@ -53,7 +66,6 @@ function graphicShow() {
       labels: xValues,
       datasets: [
         {
-
           data: [giuste, sbagliate],
           backgroundColor: ['#4caf50', '#f44336'],
         },
@@ -96,6 +108,9 @@ function graphicShow() {
     ],
   });
 }
+
+// funzione per button, che porta alla pagina 'feedback.html'
+
 btnRateUs.addEventListener('click', function (event) {
   event.preventDefault();
   window.location.assign('feedback.html');
