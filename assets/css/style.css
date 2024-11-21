@@ -156,7 +156,6 @@ p#sentence {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   display: none;
-
   background-color: #cccccc;
 }
 
