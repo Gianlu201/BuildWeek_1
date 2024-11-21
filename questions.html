@@ -1,27 +1,9 @@
-<!-- 
-  header 
-    logo
-    timer
-
-  main
-    h1 domanda
-    section
-      bottoni risposte
-    
-    section
-      bottone procedi
-
-    footer 
-      conteggio domanda
--->
-
 <!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>quiz</title>
-
+    <title>Questions Page</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="icon" sizes="16x16" href="assets/img/epicode1-logo.png" />
     <link
@@ -44,10 +26,6 @@
         <img src="assets/img/epicode_logo.png" alt="epicode_logo" id="logo" />
         <div id="timer">
           <canvas id="timerChart"></canvas>
-          <!-- <div id="timerText">
-            <p>SECONDS</p>
-            <div id="contoAllaRovescia"></div>
-            <p>REMAINING</p> -->
           </div>
         </div>
       </header>
@@ -55,7 +33,6 @@
         <div id="questionBox">
           <h1 id="domanda">In the programming</h1>
         </div>
-
         <form id="answersBox">
           <div id="answersContainer">
             <!-- <div>
@@ -87,7 +64,6 @@
         </div>
       </footer>
     </div>
-
     <script src="assets/js/questions.js"></script>
   </body>
 </html>

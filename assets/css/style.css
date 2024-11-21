@@ -27,6 +27,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Inter', sans-serif;
+  max-height: 100%;
 }
 
 h1,
@@ -39,7 +40,6 @@ h4 {
 .container {
   width: 1150px;
   margin: 30px auto;
-  /* border: 2px solid red; */
 }
 
 .centred {
@@ -47,7 +47,7 @@ h4 {
 }
 
 .highlighted {
-  color: #900080;
+  color: #d20094;
 }
 
 .invisible {
@@ -68,8 +68,6 @@ h4 {
   font-weight: bolder;
   padding: 12px 60px;
   cursor: pointer;
-
-  /* TODO aggiustare ombra */
   box-shadow: 10px 10px 5px #265f89, -10px -10px 5px #265f89,
     10px -10px 5px #265f89, -10px 10px 5px #265f89;
   color: #000000;
@@ -91,57 +89,61 @@ header {
 }
 
 /*-- WELCOME PAGE ---------------------------------------------------*/
-#title {
-  margin: 0 50px;
-  padding: 50px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  font-size: 80px;
-  margin-bottom: 0;
+#welcome h1 {
+  font-weight: 400;
+  margin-bottom: 40px;
 }
 
-.description {
-  margin: 0 60px;
-  padding: 10px 20px;
+#aCapo {
+  display: block;
+  line-height: 40%;
 }
 
-.info {
-  margin: 0 60px;
-  /* font-family: "Inter", sans-serif; */
-  font-size: 20px;
-  padding: 10px 20px;
+#divTesto {
+  font-weight: 300;
+  word-spacing: 0.2em;
+  margin-bottom: 100px;
+}
+
+#divTesto b{
+  font-weight: bold;
+}
+
+#welcome .highlighted{
+  font-size: 1.6em;
+  margin-bottom: 10px;
+}
+
+#welcome p{
+margin-bottom: 50px;
+}
+
+#list {
+ margin-left: 25px;
+}
+
+#list li {
+ line-height: 1.6em;
 }
 
 .checkStart {
-  padding: 30px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
+}
+
+#divInput{
+  height: 100%;
 }
 
 p#sentence {
   color: red;
-}
-
-.checkStart p {
-  margin: 0 60px 40px 80px;
-}
-
-.list1 {
-  padding: 15px;
-  margin: 20px 0px 20px 25px;
-}
-
-.list1 li {
-  margin: 0 60px;
-  font-size: 20px;
+  margin: 0;
 }
 
 #startQuiz {
   background: black;
-  /* color: white; */
   opacity: 0.2;
 }
 
@@ -149,16 +151,14 @@ p#sentence {
 #questions header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 50px;
 }
 
 #timer {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  margin: 20px 0;
 }
 
 #timerChart {
@@ -169,37 +169,39 @@ p#sentence {
 
 #questionBox {
   width: 1100px;
-  height: 300px;
+  height: 120px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+#domanda {
+  font-size: 40px;
+}
+
 #answersBox {
   width: 1000px;
-  margin: 60px auto 0;
+  margin: 45px auto 0;
 }
 
 #answersContainer {
   width: 100%;
-  height: 250px;
+  height: 200px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 10px;
 }
 
 #answersContainer div {
-  width: 43%;
-  height: 93px;
+  width: 40%;
+  height: 80px;
   display: flex;
   align-items: center;
-  /*background-color: #2b2956;*/
   font-size: 1.3em;
   border: solid 4px transparent;
   border-radius: 100px;
-  /* TODO aggiustare il bordo attorno alle risposte */
   background:
     linear-gradient(to right, #2b2956, #2b2956),
     linear-gradient(to bottom, rgb(226, 226, 235), rgb(15, 15, 44));
@@ -208,13 +210,10 @@ p#sentence {
 }
 
 #answersContainer div:hover {
-  /* background: linear-gradient(to top, #900080, #d20094);*/
-
   background: linear-gradient(to top, #900080, #d20094) padding-box,
     linear-gradient(to bottom, #900080, #d20094) border-box;
   border-radius: 100px;
   border: 4px solid transparent;
-
 }
 
 #answersContainer div.checked {
@@ -229,7 +228,6 @@ p#sentence {
 }
 
 #questions footer {
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   font-size: 1.5em;
