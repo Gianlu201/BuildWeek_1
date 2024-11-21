@@ -16,7 +16,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn\'t get modified?",
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -99,32 +99,19 @@ let questionIndex = 0;
 const questionText = document.getElementById("domanda");
 const counter = document.getElementById("counter");
 const answersContainer = document.getElementById("answersContainer");
+const ctx = document.getElementById("timerChart").getContext("2d");
 const arrayAnswers = [];
 let shuffledQuestions;
 let answersArray;
 let timeLeft;
+let timerChart = {};
+const timerElement = document.getElementById("timer");
 
-// ---------------------------------------------------------
-
-//Elenco funzioni
-
-/*
-  init()
-
-  disableButton()
-
-  getRandomQuestion()
-  showQuestion()
-  questionNumber()
-
-  shuffleAnswers()
-  showAnswers()
-
-  timerStart()
-
-*/
+//---------------------------------------------------------
 
 document.addEventListener("load", init());
+
+// funzione di caricamento pagina
 
 function init() {
   disableButton();
@@ -141,12 +128,16 @@ function init() {
   timerStart();
 }
 
+// funzioni enable e disable del button 'proceed'
+
 function disableButton() {
   btnProceed.classList.add("invisible");
 }
 function ableButton() {
   btnProceed.classList.remove("invisible");
 }
+
+// funzione che prende in input un array e ritorna un array con le domande randomizzate
 
 function getRandomQuestion(arr) {
   const originalQuestions = [...arr];
@@ -161,18 +152,23 @@ function getRandomQuestion(arr) {
   return myQuestions;
 }
 
+// funzione per stampare le domande nell'html
+
 function showQuestion(arr, index) {
   questionText.innerText = `${arr[index].question}`;
 }
+
+// counter per aumentare il numero della domanda a cui sei
 
 function questionNumber(index) {
   counter.innerText = index + 1;
 }
 
+// funzione che riceve un array delle risposte, riceve l'indice corrente, poi mescola l'array e ritorna le risposte randomizzate
+
 function shuffleAnswers(arr, index) {
   const myAnswers = arr[index].incorrect_answers.concat(
     arr[index].correct_answer
-
   );
   const originalAnswers = [...myAnswers];
   const myShuffleAnswers = [];
@@ -186,9 +182,9 @@ function shuffleAnswers(arr, index) {
   return myShuffleAnswers;
 }
 
+// funzione che crea gli elementi html e ne stampa le risposte all'interno
 
 function showAnswers(arr) {
-  console.log(arr);
   for (let i = 0; i < arr.length; i++) {
     const myDiv = document.createElement("div");
     myDiv.classList.add("pressed");
@@ -211,12 +207,12 @@ function showAnswers(arr) {
   }
 }
 
-// TO DO riguardare Canvas all'interno del timer 
+// TODO riguardare Canvas all'interno del timer
+// funzione che crea il timer ad ogni domanda e stampa all'interno un countdown
 
 function timerStart() {
   timeLeft = 30;
-  const ctx = document.getElementById("timerChart").getContext("2d");
-  const timerChart = new Chart(ctx, {
+  timerChart = new Chart(ctx, {
     type: "doughnut",
     data: {
       datasets: [
@@ -261,9 +257,6 @@ function timerStart() {
     ],
   });
 
-
-  const timerElement = document.getElementById("timer");
-
   const countdown = setInterval(() => {
     timeLeft--;
 
@@ -271,11 +264,13 @@ function timerStart() {
     timerChart.update();
 
     if (timeLeft === 0) {
-      btnCliccato('undefined');
-      timeOut();
+      btnCliccato("undefined");
+      goNext();
     }
   }, 1000);
 }
+
+// funzione per rende cliccabili i button delle risposte
 
 function clickable() {
   const fishing = document.querySelectorAll(".pressed");
@@ -287,20 +282,25 @@ function clickable() {
     });
   });
 }
+
+// funzione per deselezionare una risposta già selezionata (a livello CSS)
+
 function unselectAllButtons() {
-  const previousSelected = document.querySelector('.checked');
+  const previousSelected = document.querySelector(".checked");
   if (previousSelected) {
-    previousSelected.classList.remove('checked');
+    previousSelected.classList.remove("checked");
   }
 }
+
+// funzione per inviare la risposta selezionata
 
 btnProceed.addEventListener("click", function (e) {
   e.preventDefault();
   check();
-
-
-  timeOut();
+  goNext();
 });
+
+// funzione per inserire il valore della risposta selezionata all'interno di un array
 
 function check() {
   const array = document.querySelectorAll("input[type=radio]");
@@ -312,30 +312,32 @@ function check() {
   }
 }
 
+// funzione per popolare l'array delle risposte date
+
 function btnCliccato(ele) {
   arrayAnswers.push(ele);
-
 }
+
+// funzione per inserire in un local storage un oggetto che contiene l'array di oggetti e un array con le risposte date
 
 function toLocalStorage(array1) {
   const myObj = {
     domande: shuffledQuestions,
     risposte: array1,
-  }
+  };
   let myString = JSON.stringify(myObj);
-  localStorage.setItem('string', myString)
+  localStorage.setItem("string", myString);
 }
 
-// funzione di fine timer 
-function timeOut() {
+// funzione con eventi di reset della pagina allo scadere del tempo e all'invio della domanda
+
+function goNext() {
   if (questionIndex === questions.length - 1) {
     toLocalStorage(arrayAnswers);
-    location.assign('results.html');
+    location.assign("results.html");
   }
   questionIndex++;
-  answersContainer.innerHTML = '';
-
-
+  answersContainer.innerHTML = "";
 
   disableButton();
 
@@ -348,5 +350,3 @@ function timeOut() {
 
   timerStart();
 }
-
-
