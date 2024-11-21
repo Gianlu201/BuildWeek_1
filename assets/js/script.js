@@ -22,8 +22,7 @@ function check() {
     btnProceed.setAttribute("disable", "false");
     return true;
   } else {
-    p.innerText = "Confirm the checkbox to start";
-
+    p.innerText = "Confirm the checkbox to start!";
     return false;
   }
 }

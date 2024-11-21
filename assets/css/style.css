@@ -138,7 +138,8 @@ margin-bottom: 50px;
 }
 
 p#sentence {
-  color: red;
+  color: #00ffff;
+  font-weight: bold;
   margin: 0;
 }
 
@@ -209,15 +210,11 @@ p#sentence {
   background-origin: padding-box, border-box;
 }
 
-#answersContainer div:hover {
+#answersContainer div:hover, #answersContainer div.checked{
   background: linear-gradient(to top, #900080, #d20094) padding-box,
     linear-gradient(to bottom, #900080, #d20094) border-box;
   border-radius: 100px;
   border: 4px solid transparent;
-}
-
-#answersContainer div.checked {
-  background: linear-gradient(to top, #900080, #d20094);
 }
 
 #questions #btnProceed {
@@ -244,6 +241,10 @@ p#sentence {
 }
 
 /*-- RESULTS PAGE ---------------------------------------------------*/
+#results header{
+  margin-bottom: 15px;
+}
+
 .containerResults {
   width: 1100px;
   margin: 30px auto;
@@ -255,7 +256,7 @@ p#sentence {
 }
 
 #sectMain {
-  margin-top: 70px;
+  margin: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -288,10 +289,6 @@ p#sentence {
   font-size: 1.3em;
 }
 
-#results footer {
-  margin-top: 50px;
-}
-
 #btnRateUs {
   font-size: 1.5em;
   font-weight: bold;
@@ -304,7 +301,7 @@ p#sentence {
 }
 
 /*-- FEEDBACK PAGE --------------------------------------------------*/
-header {
+#feedback header {
   margin-bottom: 60px;
 }
 
@@ -330,19 +327,14 @@ h2.feedbackSubtitle {
   width: 30px;
   cursor: pointer;
   filter: grayscale(100%);
-  /* Stelle inizialmente in bianco e nero */
   transition: 0.3s ease;
-  /* Transizione fluida */
 }
 
-/* Quando passi sopra una stella */
 #ratingStars label:hover img,
 #ratingStars label:hover~label img {
   filter: none;
-  /* Rimuove il filtro bianco e nero (mostra il colore originale) */
 }
 
-/* Quando una stella è selezionata */
 #ratingStars input:checked+label img,
 #ratingStars input:checked+label~label img {
   filter: none;
