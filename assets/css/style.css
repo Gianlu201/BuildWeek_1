@@ -136,26 +136,60 @@ header {
   height: 100%;
 }
 
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-container .checkMark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 13px;
+  width: 13px;
+  background-color: #eeeeee;
+  border: 3px solid transparent;
+}
+
+.checkbox-container .checkMark::after {
+  content: 'L';
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #d20094;
+  position: absolute;
+  left: 12px;
+  top: -5px;
+  width: 3px;
+  height: 7px;
+  /* border: solid #d20094; */
+  border-width: 0 5px 5px 0;
+  transform: scaleX(-1) rotate(-45deg);
+  display: none;
+}
+
+/* .checkbox-container input:checked ~ .checkMark {
+  border-color: #2196f3;
+} */
+
+.checkbox-container input:checked ~ .checkMark::after {
+  display: block;
+}
+
 p#sentence {
   color: #00ffff;
   font-weight: bold;
   margin: 0;
-}
-
-#startQuiz::after {
-  content: '';
-  position: absolute;
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid #2196f3;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-  display: none;
-  background-color: #cccccc;
 }
 
 /*-- QUESTIONS PAGE -------------------------------------------------*/
