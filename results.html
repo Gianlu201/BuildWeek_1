@@ -1,63 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result page</title>
+    <link rel="icon" sizes="16x16" href="assets/img/epicode1-logo.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Result page</title>
-  <link rel="icon" sizes="16x16" href="assets/img/epicode1-logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
-    rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
 
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-</head>
+  <body id="results">
+    <div class="containerResults centred">
+      <header>
+        <img id="logo" src="/assets/img/epicode_logo.png" />
+      </header>
+      <main>
+        <section>
+          <h1><strong>Results</strong></h1>
+          <h2 id="sottotitolo">The summary of your answers:</h2>
+        </section>
+        <section id="sectMain">
+          <div class="correct">
+            <h3>Correct</h3>
+            <span class="percent"> <bold id="correctPercentage"></bold>% </span
+            ><br />
+            <span class="questionResults"
+              ><span id="corrects"></span>/10 questions</span
+            >
+          </div>
+          <div id="myChartContainer">
+            <canvas
+              id="myChart"
+              style="width: 350px; height: 350px; max-width: 350px"
+            ></canvas>
+          </div>
+          <div class="wrong">
+            <h3>Wrong</h3>
+            <span class="percent"> <bold id="wrongPercentage"></bold>% </span
+            ><br />
+            <span class="questionResults"
+              ><span id="wrongs"></span>/10 questions</span
+            >
+          </div>
+        </section>
+        <section id="sectButtons">
+          <div>
+            <button id="btnShowResults">SHOW RESULTS</button>
+          </div>
+          <div>
+            <button id="btnRateUs">RATE US</button>
+          </div>
+        </section>
+      </main>
 
-<body id="results">
-  <div class="containerResults centred">
-    <header>
-      <img id="logo" src="/assets/img/epicode_logo.png" />
-    </header>
-    <main>
-      <section>
-        <h1><strong>Results</strong></h1>
-        <h2 id="sottotitolo">The summary of your answers:</h2>
+      <section id="resultMask" class="hidden">
+        <div id="maskContainer">
+          <header id="maskHeader">
+            <button type="button" id="btnMask">❌</button>
+          </header>
+
+          <div id="maskContent">
+            <!-- <div>
+              <h4>Testo domanda</h4>
+              <ul>
+                <li>Risposta 1</li>
+                <li>Risposta 2</li>
+              </ul>
+            </div> -->
+          </div>
+        </div>
       </section>
-      <section id="sectMain">
-        <div class="correct">
-          <h3>Correct</h3>
-          <span class="percent">
-            <bold id="correctPercentage"></bold>%
-          </span><br />
-          <span class="questionResults"><span id="corrects"></span>/10 questions</span>
-        </div>
-        <div>
-          <canvas id="myChart" style="width: 350px; height: 350px; max-width: 350px;"></canvas>
-        </div>
-        <div class="wrong">
-          <h3>Wrong</h3>
-          <span class="percent">
-            <bold id="wrongPercentage"></bold>%
-          </span><br />
-          <span class="questionResults"><span id="wrongs"></span>/10 questions</span>
-        </div>
-      </section>
-      <section>
-        <div>
-          <button id="btnRateUs">RATE US</button>
-        </div>
-        <div>
-          <!--<button id="btnBackWelcome"></button>-->
-        </div>
-      </section>
-    </main>
-  </div>
+    </div>
 
-  <script src="assets/js/results.js"></script>
-</body>
-
+    <script src="assets/js/results.js"></script>
+  </body>
 </html>
