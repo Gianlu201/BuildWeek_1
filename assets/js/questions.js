@@ -1,115 +1,115 @@
 const questions = [
   {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
-    question: "What does CPU stand for?",
-    correct_answer: "Central Processing Unit",
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
+    question: 'What does CPU stand for?',
+    correct_answer: 'Central Processing Unit',
     incorrect_answers: [
-      "Central Process Unit",
-      "Computer Personal Unit",
-      "Central Processor Unit",
+      'Central Process Unit',
+      'Computer Personal Unit',
+      'Central Processor Unit',
     ],
   },
   {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
     question:
       "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
-    correct_answer: "Final",
-    incorrect_answers: ["Static", "Private", "Public"],
+    correct_answer: 'Final',
+    incorrect_answers: ['Static', 'Private', 'Public'],
   },
   {
-    category: "Science: Computers",
-    type: "boolean",
-    difficulty: "easy",
-    question: "The logo for Snapchat is a Bell.",
-    correct_answer: "False",
-    incorrect_answers: ["True"],
+    category: 'Science: Computers',
+    type: 'boolean',
+    difficulty: 'easy',
+    question: 'The logo for Snapchat is a Bell.',
+    correct_answer: 'False',
+    incorrect_answers: ['True'],
   },
   {
-    category: "Science: Computers",
-    type: "boolean",
-    difficulty: "easy",
+    category: 'Science: Computers',
+    type: 'boolean',
+    difficulty: 'easy',
     question:
-      "Pointers were not used in the original C programming language; they were added later on in C++.",
-    correct_answer: "False",
-    incorrect_answers: ["True"],
+      'Pointers were not used in the original C programming language; they were added later on in C++.',
+    correct_answer: 'False',
+    incorrect_answers: ['True'],
   },
   {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
     question:
-      "What is the most preferred image format used for logos in the Wikimedia database?",
-    correct_answer: ".svg",
-    incorrect_answers: [".png", ".jpeg", ".gif"],
+      'What is the most preferred image format used for logos in the Wikimedia database?',
+    correct_answer: '.svg',
+    incorrect_answers: ['.png', '.jpeg', '.gif'],
   },
   {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
-    question: "In web design, what does CSS stand for?",
-    correct_answer: "Cascading Style Sheet",
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
+    question: 'In web design, what does CSS stand for?',
+    correct_answer: 'Cascading Style Sheet',
     incorrect_answers: [
-      "Counter Strike: Source",
-      "Corrective Style Sheet",
-      "Computer Style Sheet",
+      'Counter Strike: Source',
+      'Corrective Style Sheet',
+      'Computer Style Sheet',
     ],
   },
   {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
     question:
-      "What is the code name for the mobile operating system Android 7.0?",
-    correct_answer: "Nougat",
-    incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
+      'What is the code name for the mobile operating system Android 7.0?',
+    correct_answer: 'Nougat',
+    incorrect_answers: ['Ice Cream Sandwich', 'Jelly Bean', 'Marshmallow'],
   },
   {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
-    question: "On Twitter, what is the character limit for a Tweet?",
-    correct_answer: "140",
-    incorrect_answers: ["120", "160", "100"],
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
+    question: 'On Twitter, what is the character limit for a Tweet?',
+    correct_answer: '140',
+    incorrect_answers: ['120', '160', '100'],
   },
   {
-    category: "Science: Computers",
-    type: "boolean",
-    difficulty: "easy",
-    question: "Linux was first created as an alternative to Windows XP.",
-    correct_answer: "False",
-    incorrect_answers: ["True"],
+    category: 'Science: Computers',
+    type: 'boolean',
+    difficulty: 'easy',
+    question: 'Linux was first created as an alternative to Windows XP.',
+    correct_answer: 'False',
+    incorrect_answers: ['True'],
   },
   {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
+    category: 'Science: Computers',
+    type: 'multiple',
+    difficulty: 'easy',
     question:
-      "Which programming language shares its name with an island in Indonesia?",
-    correct_answer: "Java",
-    incorrect_answers: ["Python", "C", "Jakarta"],
+      'Which programming language shares its name with an island in Indonesia?',
+    correct_answer: 'Java',
+    incorrect_answers: ['Python', 'C', 'Jakarta'],
   },
 ];
 
-const btnProceed = document.getElementById("btnProceed");
+const btnProceed = document.getElementById('btnProceed');
 let questionIndex = 0;
-const questionText = document.getElementById("domanda");
-const counter = document.getElementById("counter");
-const answersContainer = document.getElementById("answersContainer");
-const ctx = document.getElementById("timerChart").getContext("2d");
+const questionText = document.getElementById('domanda');
+const counter = document.getElementById('counter');
+const answersContainer = document.getElementById('answersContainer');
+const ctx = document.getElementById('timerChart').getContext('2d');
 const arrayAnswers = [];
 let shuffledQuestions;
 let answersArray;
 let timeLeft;
 let timerChart = {};
-const timerElement = document.getElementById("timer");
+const timerElement = document.getElementById('timer');
 
 //---------------------------------------------------------
 
-document.addEventListener("load", init());
+document.addEventListener('load', init());
 
 // funzione di caricamento pagina
 
@@ -131,10 +131,10 @@ function init() {
 // funzioni enable e disable del button 'proceed'
 
 function disableButton() {
-  btnProceed.classList.add("invisible");
+  btnProceed.classList.add('invisible');
 }
 function ableButton() {
-  btnProceed.classList.remove("invisible");
+  btnProceed.classList.remove('invisible');
 }
 
 // funzione che prende in input un array e ritorna un array con le domande randomizzate
@@ -186,18 +186,18 @@ function shuffleAnswers(arr, index) {
 
 function showAnswers(arr) {
   for (let i = 0; i < arr.length; i++) {
-    const myDiv = document.createElement("div");
-    myDiv.classList.add("pressed");
-    const myRadio = document.createElement("input");
-    myRadio.type = "radio";
+    const myDiv = document.createElement('div');
+    myDiv.classList.add('pressed');
+    const myRadio = document.createElement('input');
+    myRadio.type = 'radio';
     myRadio.id = `button${i + 1}`;
-    myRadio.classList.add("hidden");
-    myRadio.name = "answer";
+    myRadio.classList.add('hidden');
+    myRadio.name = 'answer';
     myRadio.value = arr[i];
 
-    const myLabel = document.createElement("label");
-    myLabel.classList.add("label");
-    myLabel.setAttribute("for", `button${i + 1}`);
+    const myLabel = document.createElement('label');
+    myLabel.classList.add('label');
+    myLabel.setAttribute('for', `button${i + 1}`);
     myLabel.innerText = arr[i];
 
     myDiv.appendChild(myRadio);
@@ -213,19 +213,19 @@ function showAnswers(arr) {
 function timerStart() {
   timeLeft = 30;
   timerChart = new Chart(ctx, {
-    type: "doughnut",
+    type: 'doughnut',
     data: {
       datasets: [
         {
           data: [timeLeft, 0],
-          backgroundColor: ["#4caf50", "rgba(0, 0, 0, 0)"],
+          backgroundColor: ['#4caf50', 'rgba(0, 0, 0, 0)'],
           borderWidth: 0,
         },
       ],
     },
     options: {
       responsive: true,
-      cutout: "70%",
+      cutout: '70%',
       plugins: {
         tooltip: {
           enabled: false,
@@ -234,21 +234,24 @@ function timerStart() {
     },
     plugins: [
       {
-        id: "center-text",
+        id: 'center-text',
         beforeDraw: (chart) => {
           const { width } = chart;
           const { top, bottom } = chart.chartArea;
+
           const ctx = chart.ctx;
+          ctx.shadowColor = '#222222';
+          ctx.shadowBlur = 15;
 
           ctx.save();
 
           const centerX = width / 2;
           const centerY = (top + bottom) / 2;
 
-          ctx.font = "bold 20px Arial";
-          ctx.fillStyle = "#ffffff";
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
+          ctx.font = 'bold 20px Arial';
+          ctx.fillStyle = '#ffffff';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
           ctx.fillText(`${timeLeft}`, centerX, centerY);
 
           ctx.restore();
@@ -258,26 +261,25 @@ function timerStart() {
   });
 
   const countdown = setInterval(() => {
-    timeLeft--;
-
     timerChart.data.datasets[0].data = [timeLeft, 30 - timeLeft];
     timerChart.update();
 
     if (timeLeft === 0) {
-      btnCliccato("undefined");
+      btnCliccato('undefined');
       goNext();
     }
+    timeLeft--;
   }, 1000);
 }
 
 // funzione per rende cliccabili i button delle risposte
 
 function clickable() {
-  const fishing = document.querySelectorAll(".pressed");
+  const fishing = document.querySelectorAll('.pressed');
   fishing.forEach((element) => {
-    element.addEventListener("click", function () {
+    element.addEventListener('click', function () {
       unselectAllButtons();
-      element.classList.add("checked");
+      element.classList.add('checked');
       ableButton();
     });
   });
@@ -286,15 +288,15 @@ function clickable() {
 // funzione per deselezionare una risposta già selezionata (a livello CSS)
 
 function unselectAllButtons() {
-  const previousSelected = document.querySelector(".checked");
+  const previousSelected = document.querySelector('.checked');
   if (previousSelected) {
-    previousSelected.classList.remove("checked");
+    previousSelected.classList.remove('checked');
   }
 }
 
 // funzione per inviare la risposta selezionata
 
-btnProceed.addEventListener("click", function (e) {
+btnProceed.addEventListener('click', function (e) {
   e.preventDefault();
   check();
   goNext();
@@ -303,7 +305,7 @@ btnProceed.addEventListener("click", function (e) {
 // funzione per inserire il valore della risposta selezionata all'interno di un array
 
 function check() {
-  const array = document.querySelectorAll("input[type=radio]");
+  const array = document.querySelectorAll('input[type=radio]');
 
   for (let i = 0; i < array.length; i++) {
     if (array[i].checked) {
@@ -326,7 +328,7 @@ function toLocalStorage(array1) {
     risposte: array1,
   };
   let myString = JSON.stringify(myObj);
-  localStorage.setItem("string", myString);
+  localStorage.setItem('string', myString);
 }
 
 // funzione con eventi di reset della pagina allo scadere del tempo e all'invio della domanda
@@ -334,10 +336,10 @@ function toLocalStorage(array1) {
 function goNext() {
   if (questionIndex === questions.length - 1) {
     toLocalStorage(arrayAnswers);
-    location.assign("results.html");
+    location.assign('results.html');
   }
   questionIndex++;
-  answersContainer.innerHTML = "";
+  answersContainer.innerHTML = '';
 
   disableButton();
 

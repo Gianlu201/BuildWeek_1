@@ -162,7 +162,6 @@ function createQuizRecap(obj) {
     myUl.appendChild(myLi);
     myDiv.appendChild(myUl);
     maskContent.appendChild(myDiv);
-    console.log(obj.domande[i].incorrect_answers.length);
   }
 }
 
