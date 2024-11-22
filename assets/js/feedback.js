@@ -44,7 +44,6 @@ inputs.forEach((input, index) => {
   input.addEventListener('change', () => {
     selectedRating = index; // Salva l'indice della stella selezionata
     resetStars(); // Mantieni le stelle illuminate fino alla selezionata
-    console.log(`Valutazione selezionata: ${index + 1}`);
   });
 });
 
@@ -56,8 +55,6 @@ rateButton.addEventListener('click', (event) => {
 
   if (selectedRating !== null) {
     const ratingValue = selectedRating + 1;
-    console.log(`Valutazione: ${ratingValue}`);
-    console.log(`Feedback: ${feedbackText || 'Nessun feedback fornito.'}`);
 
     toLocalStorage(ratingValue, feedbackText);
 
