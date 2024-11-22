@@ -151,7 +151,7 @@ function insideText() {
 
 btnRateUs.addEventListener('click', function (event) {
   event.preventDefault();
-  window.location.assign('feedback.html');
+  location.replace('feedback.html');
 });
 
 // funzione per far comparire la maschera con le domande quando viene premuto il bottone

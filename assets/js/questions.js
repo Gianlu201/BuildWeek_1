@@ -114,6 +114,10 @@ document.addEventListener('load', init());
 // funzione di caricamento pagina
 
 function init() {
+  onbeforeunload = function () {
+    return false;
+  };
+
   disableButton();
 
   shuffledQuestions = getRandomQuestion(questions);
@@ -207,7 +211,6 @@ function showAnswers(arr) {
   }
 }
 
-// TODO riguardare Canvas all'interno del timer
 // funzione che crea il timer ad ogni domanda e stampa all'interno un countdown
 
 function timerStart() {
@@ -336,7 +339,7 @@ function toLocalStorage(array1) {
 function goNext() {
   if (questionIndex === questions.length - 1) {
     toLocalStorage(arrayAnswers);
-    location.assign('results.html');
+    location.replace('results.html');
   }
   questionIndex++;
   answersContainer.innerHTML = '';

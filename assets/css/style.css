@@ -68,8 +68,8 @@ h4 {
   font-weight: bolder;
   padding: 12px 60px;
   cursor: pointer;
-  box-shadow: 10px 10px 5px #265f89, -10px -10px 5px #265f89,
-    10px -10px 5px #265f89, -10px 10px 5px #265f89;
+  box-shadow: 10px 10px 20px #265f89, -10px -10px 20px #265f89,
+    10px -10px 20px #265f89, -10px 10px 20px #265f89;
   color: #000000;
 }
 
