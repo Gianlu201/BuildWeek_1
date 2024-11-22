@@ -43,11 +43,6 @@ function checkScore(obj) {
       sbagliate++;
     }
   }
-  if (giuste >= 6) {
-    result = `CONGRATULATION, you passed!`;
-  } else {
-    result = "SORRY, you didn't pass!";
-  }
 }
 
 // funzione di stampa del risultato
@@ -75,6 +70,7 @@ function graphicShow() {
         {
           data: [giuste, sbagliate],
           backgroundColor: ['#4caf50', '#f44336'],
+          borderWidth: 0,
         },
       ],
     },
@@ -95,25 +91,60 @@ function graphicShow() {
           const { width } = chart;
           const { top, bottom } = chart.chartArea;
           const ctx = chart.ctx;
-
+          ctx.shadowColor = '#222222';
+          ctx.shadowBlur = 15;
           ctx.save();
 
-          // Calcola la posizione centrale
-          const centerX = width / 2;
-          const centerY = (top + bottom) / 2;
+          // funzione per scrivere il testo nel grafico
+          insideText();
 
-          // Aggiungi il testo
-          ctx.font = 'bold 20px Arial';
-          ctx.fillStyle = '#ffffff';
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillText(result, centerX, centerY);
+          // // Calcola la posizione centrale
+          // const centerX = width / 2;
+          // const centerY = (top + bottom) / 2;
+
+          // // Aggiungi il testo
+          // ctx.font = 'bold 20px Arial';
+          // ctx.fillStyle = '#ffffff';
+          // ctx.textAlign = 'center';
+          // ctx.textBaseline = 'middle';
+          // ctx.fillText(result, centerX, centerY);
 
           ctx.restore();
         },
       },
     ],
   });
+}
+
+// funzione per scrivere il testo nel grafico
+
+function insideText() {
+  insideCanvas.innerHTML = '';
+  let message;
+  const myH4 = document.createElement('h4');
+  const myH4Second = document.createElement('h4');
+
+  if (giuste >= 6) {
+    result = `CONGRATULATION!`;
+    myH4.innerText = result;
+    insideCanvas.appendChild(myH4);
+    message = 'You passed the exam';
+    myH4Second.style.color = 'green';
+    myH4Second.innerText = message;
+  } else {
+    result = 'SORRY!';
+    myH4.innerText = result;
+    insideCanvas.appendChild(myH4);
+    message = "You didn't pass the exam";
+    myH4Second.style.color = 'red';
+    myH4Second.innerText = message;
+  }
+  insideCanvas.appendChild(myH4Second);
+
+  const myP = document.createElement('p');
+  myP.innerText = 'Press SHOW RESULTS to check your answers';
+
+  insideCanvas.appendChild(myP);
 }
 
 // funzione per button, che porta alla pagina 'feedback.html'
