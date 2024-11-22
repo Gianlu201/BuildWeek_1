@@ -64,7 +64,7 @@ Questo progetto è distribuito sotto la licenza del Gruppo 4 Corso FS0924.
 ---
 
 Alessandro Incalza.
-Daniele Renna.
+Daniele Renna.  
 Ettore Ciammella.
-Gianluca Di Diego.
+Gianluca Di Diego.  
 Manuela Lissia.
