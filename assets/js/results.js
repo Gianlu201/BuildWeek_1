@@ -98,17 +98,6 @@ function graphicShow() {
           // funzione per scrivere il testo nel grafico
           insideText();
 
-          // // Calcola la posizione centrale
-          // const centerX = width / 2;
-          // const centerY = (top + bottom) / 2;
-
-          // // Aggiungi il testo
-          // ctx.font = 'bold 20px Arial';
-          // ctx.fillStyle = '#ffffff';
-          // ctx.textAlign = 'center';
-          // ctx.textBaseline = 'middle';
-          // ctx.fillText(result, centerX, centerY);
-
           ctx.restore();
         },
       },

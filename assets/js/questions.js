@@ -339,6 +339,7 @@ function toLocalStorage(array1) {
 function goNext() {
   if (questionIndex === questions.length - 1) {
     toLocalStorage(arrayAnswers);
+    onbeforeunload = function () {};
     location.replace('results.html');
   }
   questionIndex++;
